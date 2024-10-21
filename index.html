@@ -21,53 +21,54 @@ https://mutiarailmusmkn6pku.com/
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark  shadow-lg">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="assets/image/logo.png" alt="" width="50" height="40" />
-            </a>
-            <a class="navbar-brand " href="#" >UHW SmartLib</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+<!-- Modify the navbar section in your HTML -->
+<nav class="navbar navbar-expand-lg navbar-dark shadow-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="assets/image/logo.png" alt="" width="50" height="40" />
+        </a>
+        <a class="navbar-brand" href="#">UHW SmartLib</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" 
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
-            <div class="collapse navbar-collapse text-right" id="navbarText">
-                <ul class="navbar-nav ms-auto  mb-2 mb-lg-0" style="align-items: center;">
-                    <li class="nav-item">
-                        <a class="nav-link btn text-white" style="
-                            border-radius: 25px;
-                            padding: 8px 20px;
-                            background-color: #238c2f;
-                            color: #fff;
-                            transition: background-color 0.3s ease, transform 0.3s ease;
-                            max-width: 120px; /* Ubah nilai sesuai kebutuhan */
-                            text-align: center; /* Menjaga teks tetap di tengah */
-                            white-space: nowrap; /* Menghindari teks memanjang */
-                        " href="https://fliphtml5.com/bookcase/blkve/" target="_blank" 
-                        onmouseover="this.style.backgroundColor='#008c11'; this.style.transform='scale(1.05)';" 
-                        onmouseout="this.style.backgroundColor='#00b315'; this.style.transform='scale(1)';">
-                            E-Book
-                        </a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="#layanan">Layanan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#fasilitas">Fasilitas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#tentang">Tentang</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#staff">Staff</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Kontak Kami</a>
-                    </li>
-                </ul>
-            </div>
+        <div class="collapse navbar-collapse text-right" id="navbarText">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="align-items: center;">
+                <li class="nav-item">
+                    <a class="nav-link btn text-white" style="
+                        border-radius: 25px;
+                        padding: 8px 20px;
+                        background-color: #238c2f;
+                        color: #fff;
+                        transition: background-color 0.3s ease, transform 0.3s ease;
+                        max-width: 120px;
+                        text-align: center;
+                        white-space: nowrap;
+                    " href="https://fliphtml5.com/bookcase/blkve/" target="_blank" 
+                    onmouseover="this.style.backgroundColor='#008c11'; this.style.transform='scale(1.05)';" 
+                    onmouseout="this.style.backgroundColor='#00b315'; this.style.transform='scale(1)';">
+                        E-Book
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#layanan" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Layanan</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#fasilitas" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Fasilitas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#tentang" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Tentang</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#staff" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Staff</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Kontak Kami</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
     <!-- !Navbar -->
 
     <!-- Banner -->
@@ -318,6 +319,32 @@ https://mutiarailmusmkn6pku.com/
     <script src="assets/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="assets/Poppins-Regular.ttf"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('click', function(event) {
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        
+        if (!navbarCollapse.contains(event.target) && !navbarToggler.contains(event.target)) {
+            if (navbarCollapse.classList.contains('show')) {
+                navbarCollapse.classList.remove('show');
+            }
+        }
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
+    </script>
 
 </body>
 

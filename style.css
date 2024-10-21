@@ -78,11 +78,38 @@
     color: #fff;
     background-color: #2f2fa8;
 }
-.navbar{
+.navbar {
     background-color: #2b1a6f;
-
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
- 
+
+.hero {
+    margin-top: 76px; /* Adjust this value based on your navbar height */
+}
+@media (max-width: 992px) {
+    .navbar-collapse {
+        background-color: #2b1a6f;
+        padding: 1rem;
+        border-radius: 0 0 10px 10px;
+    }
+    
+    .nav-item {
+        margin: 8px 0;
+    }
+    
+    .nav-link {
+        padding: 8px 16px !important;
+    }
+}
+
+/* Optional: Add smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 76px; /* Same as navbar height */
+}
 
 .lingkaran i {
     position: relative;
